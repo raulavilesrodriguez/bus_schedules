@@ -12,13 +12,13 @@ abstract class ScheduleDatabase : RoomDatabase(){
     companion object {
         @Volatile
         private var Instance: ScheduleDatabase? = null
-    }
 
-    fun getDatabase(context: Context): ScheduleDatabase {
-        return Instance ?: synchronized(this){
-            Room.databaseBuilder(context, ScheduleDatabase::class.java, "bus_schedule")
-                .build()
-                .also { Instance = it }
+        fun getDatabase(context: Context): ScheduleDatabase {
+            return Instance ?: synchronized(this){
+                Room.databaseBuilder(context, ScheduleDatabase::class.java, "bus_schedule")
+                    .build()
+                    .also { Instance = it }
+            }
         }
     }
 
