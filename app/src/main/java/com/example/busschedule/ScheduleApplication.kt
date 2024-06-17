@@ -1,4 +1,18 @@
 package com.example.busschedule
 
-class ScheduleApplication {
+import android.app.Application
+import com.example.busschedule.data.AppContainer
+import com.example.busschedule.data.AppDataContainer
+class ScheduleApplication : Application() {
+
+    /**
+     * AppContainer instance used by the rest of classes to obtain dependencies
+     */
+    lateinit var container: AppContainer
+
+    override fun onCreate() {
+        super.onCreate()
+        container = AppDataContainer(this)
+    }
+
 }

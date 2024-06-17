@@ -5,6 +5,6 @@ import kotlinx.coroutines.flow.Flow
 class OfflineBusSchedulesRepository(private val busScheduleDao: BusScheduleDao) : BusSchedulesRepository {
     override fun getAllSchedulesStream(): Flow<List<BusSchedule>> = busScheduleDao.getAllSchedules()
 
-    override fun getScheduleStream(id: Int): Flow<BusSchedule?> = busScheduleDao.getSchedule(id)
+    override fun getScheduleStream(stopName: String): Flow<List<BusSchedule>> = busScheduleDao.getSchedule(stopName)
 
 }

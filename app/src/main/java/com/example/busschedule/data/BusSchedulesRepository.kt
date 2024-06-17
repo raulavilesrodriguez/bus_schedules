@@ -6,6 +6,6 @@ interface BusSchedulesRepository {
 
     fun getAllSchedulesStream(): Flow<List<BusSchedule>>
 
-    fun getScheduleStream(id: Int): Flow<BusSchedule?>
+    fun getScheduleStream(stopName: String): Flow<List<BusSchedule>>
 
 }
